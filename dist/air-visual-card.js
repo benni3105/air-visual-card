@@ -359,18 +359,18 @@ class AirVisualCard extends HTMLElement {
 
       let getAQI = function () {
         switch (true) {
-          case (aqiSensor.value <= 50):
-            return '1'; // return string '1' to pull appropriate AQI icon filename ('ic-face-1.svg') in HTML
-          case (aqiSensor.value <= 100):
-            return '2';
-          case (aqiSensor.value <= 150):
-            return '3';
-          case (aqiSensor.value <= 200):
-            return '4';
-          case (aqiSensor.value <= 300):
+          case (aqiSensor.value <= 17):
+            return '6'; // return string '1' to pull appropriate AQI icon filename ('ic-face-1.svg') in HTML
+          case (aqiSensor.value <= 34):
             return '5';
-          case (aqiSensor.value <= 9999):
-            return '6';
+          case (aqiSensor.value <= 51):
+            return '4';
+          case (aqiSensor.value <= 68):
+            return '3';
+          case (aqiSensor.value <= 85):
+            return '2';
+          case (aqiSensor.value > 85):
+            return '1';
           default:
             return '1';
         }
