@@ -386,12 +386,9 @@ class AirVisualCard extends HTMLElement {
             pollutantUnit = hass.states[mainPollutantSensor.config].attributes['pollutant_unit'];
             let mainPollutantState = hass.states[mainPollutantSensor.config].state;
             mainPollutant = hass.localize("component.sensor.state.airvisual__pollutant_label." + mainPollutantState);
-          } else if (typeof hass.states[mainPollutantSensor.config].attributes['dominentpol'] != "undefined") {
-            pollutantUnit = pollutantUnitValue[hass.states[mainPollutantSensor.config].attributes['dominentpol']];
-            mainPollutant = mainPollutantValue[hass.states[mainPollutantSensor.config].attributes['dominentpol']];
           } else {
-            pollutantUnit = 'pollutant unit';
-            mainPollutant = 'main pollutant';
+            pollutantUnit = pollutantUnitValue[hass.states[mainPollutantSensor.config].state];
+            mainPollutant = mainPollutantValue[hass.states[mainPollutantSensor.config].state];
           }         
         }
         if (typeof hass.states[aqiSensor.config] != "undefined") {
