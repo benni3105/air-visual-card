@@ -325,13 +325,12 @@ class AirVisualCard extends HTMLElement {
 
       // WAQI sensor-specific stuff
       // AirVisual sensors have the APL description as part of the sensor state, but WAQI doesn't. These APL states will be used as backup if AirVisual sensors is not used.
-      const APLdescription = {
-        '1': 'Good',
-        '2': 'Moderate',
-        '3': 'Unhealthy for Sensitive Groups',
-        '4': 'Unhealthy',
-        '5': 'Very Unhealthy',
-        '6': 'Hazardous',
+      const APLTranslation = {
+        'excellent': 'Ausgezeichnet',
+        'good': 'Gut',
+        'moderate': 'Moderat',
+        'poor': 'Schlecht',
+        'very poor': 'Sehr schlecht',
       }
       const pollutantUnitValue = {
         'pm25': 'µg/m³',
@@ -396,7 +395,7 @@ class AirVisualCard extends HTMLElement {
         }
         // Check if APL is an WAQI sensor (because the state is an integer). Returns 'NaN' if it is not a number
         if (typeof hass.states[aplSensor.config] != "undefined") {
-          apl = hass.states[aplSensor.config].state;
+          apl = APLTranslation(hass.states[aplSensor.config].state);
         }
       };
 
