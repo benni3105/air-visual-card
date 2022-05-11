@@ -328,7 +328,7 @@ class AirVisualCard extends HTMLElement {
       const APLTranslation = {
         'excellent': 'Ausgezeichnet',
         'good': 'Gut',
-        'moderate': 'Mässig',
+        'moderate': 'Mäßig',
         'poor': 'Schlecht',
         'very poor': 'Sehr schlecht',
       }
